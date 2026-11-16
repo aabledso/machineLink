@@ -145,8 +145,18 @@
                 Use this section to share maintenance updates, unresolved issues, and important notes with the next
                 shift. This ensures continuity and effective communication between shifts.
             </p>
+            <div id="login-section">
+                <p>
+                    Sign in to post a handover note.
+                </p>
+                <button id="github-login" type="button">Sign in with GitHub</button>
+            </div>
+            <div id="user-section" hidden>
+                <p id="user-info"></p>
+                <button id="logout" type="button">Sign out</button>
+            </div>
             <h3>Post a Handover Note</h3>
-            <form id="handover-form">
+            <form id="handover-form" hidden>
                 <label for="technician-name">Your Name:</label>
                 <input type="text" id="technician-name" required maxlength="50">
                 <label for="handover-message">Message:</label>
