@@ -138,7 +138,30 @@
                 </tr>
             </table>
         </section>
+        <section id="handover">
+            <h2>Shift Handover</h2>
+            <hr>
+            <p>
+                Use this section to share maintenance updates, unresolved issues, and important notes with the next
+                shift. This ensures continuity and effective communication between shifts.
+            </p>
+            <h3>Post a Handover Note</h3>
+            <form id="handover-form">
+                <label for="technician-name">Your Name:</label>
+                <input type="text" id="technician-name" required maxlength="50">
+                <label for="handover-message">Message:</label>
+                <textarea id="handover-message" rows="5" required maxlength="1000"></textarea>
+                <button type="submit">Post Message</button>
+                <h3>Previous Handover Notes</h3>
+                <div id="handover-notes">
+                    <p>
+                        No handover notes have been posted yet.
+                    </p>
+                </div>
+            </form>
+        </section>
     </main>
+    <script type="module" src="handover.js"></script>
 
 </body>
 
