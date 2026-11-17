@@ -120,6 +120,7 @@ const messagesQuery = query(
     orderBy("createdAt", "desc")
 );
 onSnapshot(messagesQuery, (snapshot) => {
+    console.log("Handover messages received:", snapshot.size);
     messagesContainer.innerHTML = "";
 
     if (snapshot.empty) {
