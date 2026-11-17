@@ -100,7 +100,7 @@ handoverForm.addEventListener("submit", async (event) => {
         return;
     }
     try {
-        await addDoc(messageRef, {
+        await addDoc(messagesRef, {
             name: name,
             message: message,
             userId: user.uid,
