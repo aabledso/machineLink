@@ -119,6 +119,7 @@ const messagesQuery = query(
     messagesRef,
     orderBy("createdAt", "desc")
 );
+console.log("Starting handoverlistener");
 onSnapshot(messagesQuery, (snapshot) => {
     console.log("Handover messages received:", snapshot.size);
     messagesContainer.innerHTML = "";
