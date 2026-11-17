@@ -38,7 +38,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GithubAuthProvider();
 const db = getFirestore(app);
-const messageRef = collection(
+const messagesRef = collection(
     db,
     "machines",
     "weld-cell-01",
