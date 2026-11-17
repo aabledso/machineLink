@@ -113,3 +113,41 @@ handoverForm.addEventListener("submit", async (event) => {
         alert("Failed to post message. Please try again.");
     }
 });
+const messagesContainer = document.getElementById("handover-messages");
+
+const messagesQuery = query(
+    messagesRef,
+    orderBy("createdAt", "desc")
+);
+onSnapshot(messagesQuery, (snapshot) => {
+    messagesContainer.innerHTML = "";
+
+    if (snapshot.empty) {
+        messagesContainer.textContent = "No handover messages yet.";
+        return;
+    }
+
+    snapshot.forEach((doc) => {
+        const data = doc.data();
+        const note = document.createElement("div");
+        note.className = "handover-note";
+        const name = document.createElement("strong");
+        name.textContent = data.name;
+        const message = document.createElement("p");
+        message.textContent = data.message;
+        const date = document.createElement("small");
+
+        if (data.createdAt) {
+            date.textContent = data.createdAt.toDate().toLocaleString();
+        } else {
+            date.textContent = "Just now";
+        }
+        note.appendChild(name);
+        note.appendChild(date);
+        note.appendChild(message);
+        messagesContainer.appendChild(note);
+    });
+}, (error) => {
+    console.error("Error loading messages:", error);
+    messagesContainer.textContent = "Failed to load handover messages. Please try again later.";
+});
