@@ -10,6 +10,16 @@ import {
     onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/13.4.0/firebase-auth.js";
 
+import {
+    getFirestore,
+    collection,
+    addDoc,
+    onSnapshot,
+    query,
+    orderBy,
+    serverTimestamp
+} from "https://www.gstatic.com/firebasejs/13.4.0/firebase-firestore.js";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -27,6 +37,13 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GithubAuthProvider();
+const db = getFirestore(app);
+const messageRef = collection(
+    db,
+    "machines",
+    "weld-cell-01",
+    "handover"
+);
 const loginButton = document.getElementById("github-login");
 const logoutButton = document.getElementById("logout");
 
@@ -63,5 +80,36 @@ logoutButton.addEventListener("click", async () => {
     } catch (error) {
         console.error("Logout failed:", error);
         alert("Unable to sign out. Please try again.");
+    }
+});
+handoverForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const user = auth.currentUser;
+    if (!user) {
+        alert("You must be signed in to submit a handover.");
+        return;
+    }
+    const name = document.getElementById("technician-name").value.trim();
+    const message = document.getElementById("handover-message").value.trim();
+    if (!name || !message) {
+        alert("Please fill in both the name and message fields.");
+        return;
+    }
+    if (name.length > 50 || message.length > 1000) {
+        alert("Your name or message is too long. Please limit your name to 50 characters and your message to 1000 characters.");
+        return;
+    }
+    try {
+        await addDoc(messageRef, {
+            name: name,
+            message: message,
+            userId: user.uid,
+            createdAt: serverTimestamp()
+        });
+        handoverForm.reset();
+        alert("Message posted successfully!");
+    } catch (error) {
+        console.error("Error posting message:", error);
+        alert("Failed to post message. Please try again.");
     }
 });
