@@ -208,3 +208,27 @@ th {
 #user-section {
     margin: 20px 0;
 }
+
+.handover-note {
+    padding: 16px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.handover-note strong {
+    display: block;
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+
+.handover-note small {
+    display: block;
+    color: #666;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.handover-note p {
+    margin: 0;
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
