@@ -117,7 +117,7 @@ const messagesContainer = document.getElementById("handover-messages");
 
 const messagesQuery = query(
     messagesRef,
-    orderBy("createdAt", "desc")
+    orderBy("createdAt", "asc")
 );
 
 onSnapshot(messagesQuery, (snapshot) => {
@@ -148,6 +148,7 @@ onSnapshot(messagesQuery, (snapshot) => {
         note.appendChild(message);
         messagesContainer.appendChild(note);
     });
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
 }, (error) => {
     console.error("Error loading messages:", error);
     messagesContainer.textContent = "Failed to load handover messages. Please try again later.";
