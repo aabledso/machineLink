@@ -156,12 +156,17 @@
                     <p id="user-info"></p>
                     <button id="logout" type="button">Sign out</button>
                 </div>
-                <h3>Post a Handover Note</h3>
+                <h3>Handover Discussion</h3>
+                <div id="handover-messages">
+                    <p>Loading handover notes...</p>
+                </div>
                 <form id="handover-form" hidden>
                     <label for="technician-name">Your Name:</label>
                     <input type="text" id="technician-name" required maxlength="50">
                     <label for="handover-message">Message:</label>
-                    <textarea id="handover-message" rows="5" required maxlength="1000"></textarea>
+                    <textarea id="handover-message" rows="3" required maxlength="1000"
+                        placeholder="Write a handover message..."></textarea>
+
                     <button type="submit">Post Message</button>
                 </form>
                 <h3>Previous Handover Notes</h3>
@@ -170,6 +175,7 @@
                         Loading handover notes...
                     </p>
                 </div>
+
 
             </section>
         </div>
