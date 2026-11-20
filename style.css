@@ -324,3 +324,24 @@ th {
     grid-column: 2 / 4;
     grid-row: 2;
 }
+
+/*END dashboard layout*/
+
+/*START - QR Style */
+.machine-qr {
+    margin-top: 12px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border: 1px solid #a2a9b1;
+    text-align: center;
+}
+
+.machine-qr a {
+    color: #0645ad;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.machine-qr:hover {
+    background-color: #eaecf0;
+}
