@@ -232,3 +232,62 @@ th {
     line-height: 1.6;
     white-space: pre-wrap;
 }
+
+/*dashboard layout*/
+.machine-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 0.7fr;
+    gap: 15px;
+    align-items: start;
+    margin-top: 12px;
+}
+
+.machine-grid section {
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+}
+
+.machine-grid h2 {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.machine-grid p {
+    margin: 8px 0;
+}
+
+.machine-grid table {
+    width: 1005;
+    border-collapse: collapse;
+}
+
+.machine-grid th,
+.machine-grid td {
+    padding: 6px;
+}
+
+#specifications {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+#documentation {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+#issues {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+#parts {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+#handover {
+    grid-column: 2 / 4;
+    grid-row: 2;
+}
