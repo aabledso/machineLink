@@ -239,27 +239,30 @@ th {
     background-color: white;
     border: 1px solid #d8dce0;
     border-radius: 6px;
-    padding: 12px;
-    margin-bottom: 10px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    width: fit-content;
+    max-width: 85%;
     overflow-wrap: break-word;
 }
 
 .handover-note strong {
     display: block;
+    color: #0645ad;
     font-size: 15px;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
 }
 
 .handover-note small {
     display: block;
     color: #666;
-    font-size: 12px;
-    margin-bottom: 10px;
+    font-size: 11px;
+    margin-bottom: 4px;
 }
 
 .handover-note p {
     margin: 0;
-    line-height: 1.6;
+    line-height: 1.4;
     white-space: pre-wrap;
 }
 
