@@ -152,5 +152,5 @@ onSnapshot(messagesQuery, (snapshot) => {
     messagesContainer.scrollTop = messagesContainer.scrollHeight;
 }, (error) => {
     console.error("Error loading messages:", error);
-    messagesContainer.textContent = "Failed to load handover messages. Please try again later.";
+    messagesContainer.textContent = "Failed to load handover messages. Please sign in and try again.";
 });
