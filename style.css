@@ -345,3 +345,29 @@ th {
 .machine-qr:hover {
     background-color: #eaecf0;
 }
+
+/* END - QR Style */
+
+/* START - media queries */
+@media screen and (max-width: 768px) {
+    .machine-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .machine-grid>section {
+        grid-column: 1/-1;
+        grid-row: auto;
+        min-width: 0;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    .machine-nav {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
